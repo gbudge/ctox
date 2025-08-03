@@ -6,7 +6,7 @@
 [![Bash](https://img.shields.io/badge/shell-bash-green.svg)](https://www.gnu.org/software/bash/)
 [![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20WSL-lightgrey.svg)](https://github.com/bud003/toxc)
 
-<img src="resources/static/toxc-logo.png" alt="toxc logo" width="200"/>
+<img src="resources/static/toxc-logo.png" alt="toxc logo" width="400"/>
 
 **A powerful Bash script that simplifies running [tox](https://tox.readthedocs.io/) tests across multiple conda environments**
 
