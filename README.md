@@ -1,10 +1,5 @@
 # toxc
-<style>
-table {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-</style>
+
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -1047,9 +1042,3 @@ When creating a new issue, please include:
 
 </div>
 
-<style>
-table {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-</style>
