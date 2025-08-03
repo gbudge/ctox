@@ -1,12 +1,12 @@
-# ctox
+# toxc
 
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Bash](https://img.shields.io/badge/shell-bash-green.svg)](https://www.gnu.org/software/bash/)
-[![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20WSL-lightgrey.svg)](https://github.com/bud003/ctox)
+[![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20WSL-lightgrey.svg)](https://github.com/bud003/toxc)
 
-<img src="resources/static/ctox-logo.png" alt="ctox logo" width="200"/>
+<img src="resources/static/toxc-logo.png" alt="toxc logo" width="200"/>
 
 **A powerful Bash script that simplifies running [tox](https://tox.readthedocs.io/) tests across multiple conda environments**
 
@@ -23,13 +23,13 @@
 cd /path/to/your/python/project
 
 # 2. Download and make executable
-curl -O https://raw.githubusercontent.com/bud003/ctox/main/ctox.sh && chmod +x ctox.sh
+curl -O https://raw.githubusercontent.com/bud003/toxc/main/toxc.sh && chmod +x toxc.sh
 
 # 3. Run tests across all environments
-./ctox.sh
+./toxc.sh
 
 # 4. Run tests in parallel
-./ctox.sh --parallel
+./toxc.sh --parallel
 ```
 
 ---
@@ -63,9 +63,9 @@ curl -O https://raw.githubusercontent.com/bud003/ctox/main/ctox.sh && chmod +x c
 
 ## 🔍 Overview
 
-**ctox** bridges the gap between conda environment management and tox testing frameworks. It automates the creation and management of conda environments for your Python versions, installs tox within those environments, and executes your tests with full parallel execution support.
+**toxc** bridges the gap between conda environment management and tox testing frameworks. It automates the creation and management of conda environments for your Python versions, installs tox within those environments, and executes your tests with full parallel execution support.
 
-### 🎯 Why Choose ctox?
+### 🎯 Why Choose toxc?
 
 | Feature | Benefit |
 |---------|---------|
@@ -134,29 +134,29 @@ curl -O https://raw.githubusercontent.com/bud003/ctox/main/ctox.sh && chmod +x c
 
 ```bash
 # Download and make executable
-curl -O https://raw.githubusercontent.com/bud003/ctox/main/ctox.sh
-chmod +x ctox.sh
+curl -O https://raw.githubusercontent.com/bud003/toxc/main/toxc.sh
+chmod +x toxc.sh
 
 # Optional: Add to PATH for global access
-sudo mv ctox.sh /usr/local/bin/ctox
+sudo mv toxc.sh /usr/local/bin/toxc
 ```
 
 ### 📦 Alternative: Clone Repository
 
 ```bash
-git clone https://github.com/bud003/ctox.git
-cd ctox && chmod +x ctox.sh
+git clone https://github.com/bud003/toxc.git
+cd toxc && chmod +x toxc.sh
 
 # Create symlink for global access
-sudo ln -s $(pwd)/ctox.sh /usr/local/bin/ctox
+sudo ln -s $(pwd)/toxc.sh /usr/local/bin/toxc
 ```
 
 ### 📁 Project-Specific Installation
 
 ```bash
 # Copy to your project directory
-cp ctox.sh /path/to/your/project/ && cd /path/to/your/project/
-chmod +x ctox.sh
+cp toxc.sh /path/to/your/project/ && cd /path/to/your/project/
+chmod +x toxc.sh
 ```
 
 ---
@@ -166,7 +166,7 @@ chmod +x ctox.sh
 ### Command Syntax
 
 ```bash
-ctox.sh [OPTIONS] [python_env...] [-- pytest_args...]
+toxc.sh [OPTIONS] [python_env...] [-- pytest_args...]
 ```
 
 ### Options Reference
@@ -195,10 +195,10 @@ Specify conda environment names following the pattern `py[X][Y]` or `py[X][YZ]`:
 
 ```bash
 # Valid environment names
-./ctox.sh py39 py310 py311 py312
+./toxc.sh py39 py310 py311 py312
 
 # Auto-discovery (reads from tox.ini)
-./ctox.sh
+./toxc.sh
 ```
 
 #### 🧪 Pytest Arguments
@@ -206,7 +206,7 @@ Specify conda environment names following the pattern `py[X][Y]` or `py[X][YZ]`:
 Pass additional arguments to pytest using the `--` separator:
 
 ```bash
-./ctox.sh py39 -- -v --tb=short --maxfail=3
+./toxc.sh py39 -- -v --tb=short --maxfail=3
 ```
 
 ### Environment Variables
@@ -230,52 +230,52 @@ Pass additional arguments to pytest using the `--` separator:
 
 ```bash
 # Test specific Python version
-./ctox.sh py39
+./toxc.sh py39
 
 # Test multiple versions
-./ctox.sh py39 py310 py311
+./toxc.sh py39 py310 py311
 
 # Auto-discover and test all environments
-./ctox.sh
+./toxc.sh
 ```
 
 ### ⚡ Parallel Execution
 
 ```bash
 # Parallel with auto-discovery
-./ctox.sh --parallel
+./toxc.sh --parallel
 
 # Parallel with custom job limit
-./ctox.sh --parallel --jobs 4 py39 py310
+./toxc.sh --parallel --jobs 4 py39 py310
 
 # Parallel with pytest arguments
-./ctox.sh --parallel py39 py310 -- -v --tb=short
+./toxc.sh --parallel py39 py310 -- -v --tb=short
 ```
 
 ### 🔧 Environment Management
 
 ```bash
 # Recreate tox environments (clear cache)
-./ctox.sh --recreate py39
+./toxc.sh --recreate py39
 
 # Force recreate conda environments
-./ctox.sh --force-conda py39 py310
+./toxc.sh --force-conda py39 py310
 
 # Full recreation (both conda and tox)
-./ctox.sh --force-conda --recreate py39
+./toxc.sh --force-conda --recreate py39
 ```
 
 ### 🔍 Testing and Debugging
 
 ```bash
 # Preview actions (dry run)
-./ctox.sh --dry-run --parallel py39 py310
+./toxc.sh --dry-run --parallel py39 py310
 
 # Verbose debugging
-./ctox.sh --verbose py39
+./toxc.sh --verbose py39
 
 # Maximum verbosity
-DEBUG=1 CONDA_TOX_VERBOSITY=3 ./ctox.sh py39
+DEBUG=1 CONDA_TOX_VERBOSITY=3 ./toxc.sh py39
 ```
 
 ### 🎓 Advanced Examples
@@ -285,19 +285,19 @@ DEBUG=1 CONDA_TOX_VERBOSITY=3 ./ctox.sh py39
 
 ```bash
 # Run specific pytest markers in parallel
-./ctox.sh --parallel py39 py310 py311 -- -m "not slow"
+./toxc.sh --parallel py39 py310 py311 -- -m "not slow"
 
 # Generate coverage report
-./ctox.sh py39 -- --cov=src --cov-report=html
+./toxc.sh py39 -- --cov=src --cov-report=html
 
 # Strict testing with custom output
-./ctox.sh --jobs 2 py39 py310 -- --strict-markers --tb=line
+./toxc.sh --jobs 2 py39 py310 -- --strict-markers --tb=line
 
 # Complete environment refresh with verbose output
-./ctox.sh --force-conda --recreate --verbose py39 -- -vvv
+./toxc.sh --force-conda --recreate --verbose py39 -- -vvv
 
 # Environment-specific testing with quiet pip
-CONDA_TOX_PIP_VERBOSITY=qqq ./ctox.sh py39 py310
+CONDA_TOX_PIP_VERBOSITY=qqq ./toxc.sh py39 py310
 ```
 
 </details>
@@ -383,14 +383,14 @@ source .env
 
 ### 🤖 Automatic Environment Creation
 
-ctox intelligently manages conda environments:
+toxc intelligently manages conda environments:
 
 ```bash
 # Creates 'py39' environment with Python 3.9
-./ctox.sh py39
+./toxc.sh py39
 
 # Creates multiple environments with respective Python versions
-./ctox.sh py310 py311 py312
+./toxc.sh py310 py311 py312
 ```
 
 ### ✅ Environment Validation
@@ -412,13 +412,13 @@ ctox intelligently manages conda environments:
 
 ```bash
 # Recreate conda environments (nuclear option)
-./ctox.sh --force-conda py39
+./toxc.sh --force-conda py39
 
 # Recreate tox environments (clear cache only)
-./ctox.sh --recreate py39
+./toxc.sh --recreate py39
 
 # Complete refresh (both conda and tox)
-./ctox.sh --force-conda --recreate py39
+./toxc.sh --force-conda --recreate py39
 ```
 
 ---
@@ -441,7 +441,7 @@ ctox intelligently manages conda environments:
 
 ### 📊 Error Message Types
 
-ctox provides clear, color-coded feedback:
+toxc provides clear, color-coded feedback:
 
 ```bash
 🔴 [FAIL] Conda is not found. Please install Anaconda or Miniconda first.
@@ -452,7 +452,7 @@ ctox provides clear, color-coded feedback:
 
 ### 🛡️ Signal Handling
 
-ctox handles interruptions gracefully:
+toxc handles interruptions gracefully:
 
 - **Ctrl+C**: Clean termination with simple message
 - **SIGTERM**: Graceful shutdown with cleanup
@@ -468,7 +468,7 @@ ctox handles interruptions gracefully:
 
 ### 🔄 Recovery Procedures
 
-If ctox fails or is interrupted:
+If toxc fails or is interrupted:
 
 ```bash
 # 1. Check for orphaned environments
@@ -481,7 +481,7 @@ conda env remove -n py39 -y
 rm -rf .tox/
 
 # 4. Restart with force recreation
-./ctox.sh --force-conda --recreate py39
+./toxc.sh --force-conda --recreate py39
 ```
 
 ---
@@ -497,7 +497,7 @@ Run this diagnostic command to check your setup:
 echo "=== System Check ===" && \
 conda --version && conda info --envs && \
 ls -la tox.ini && \
-./ctox.sh --dry-run --verbose py39
+./toxc.sh --dry-run --verbose py39
 ```
 
 ### 🛠️ Common Issues & Solutions
@@ -505,7 +505,7 @@ ls -la tox.ini && \
 <details>
 <summary>🔴 "Conda is not found"</summary>
 
-**Symptoms**: Command not found error when running ctox
+**Symptoms**: Command not found error when running toxc
 **Solutions**:
 ```bash
 # Check conda installation
@@ -601,16 +601,16 @@ ls -la tests/ || echo "No tests directory found"
 **Solutions**:
 ```bash
 # Reduce parallel jobs
-./ctox.sh --parallel --jobs 2 py39 py310
+./toxc.sh --parallel --jobs 2 py39 py310
 
 # Run sequentially for debugging
-./ctox.sh py39 py310
+./toxc.sh py39 py310
 
 # Check system resources
 htop || top
 
 # Enable debug mode
-DEBUG=1 ./ctox.sh --verbose --parallel py39 py310
+DEBUG=1 ./toxc.sh --verbose --parallel py39 py310
 ```
 
 </details>
@@ -621,16 +621,16 @@ Enable comprehensive debugging:
 
 ```bash
 # Maximum verbosity for troubleshooting
-DEBUG=1 CONDA_TOX_VERBOSITY=3 ./ctox.sh --verbose --dry-run py39
+DEBUG=1 CONDA_TOX_VERBOSITY=3 ./toxc.sh --verbose --dry-run py39
 
 # Monitor system resources during execution
 htop &  # In another terminal
-./ctox.sh --parallel py39 py310 py311
+./toxc.sh --parallel py39 py310 py311
 ```
 
 ### ⚡ Performance Optimization
 
-If ctox runs slowly:
+If toxc runs slowly:
 
 1. **Optimize Parallel Jobs**: Use `--jobs N` with appropriate N for your system
 2. **Preserve Environments**: Avoid `--force-conda` unless necessary  
@@ -648,7 +648,7 @@ If ctox runs slowly:
 <summary>🐙 GitHub Actions</summary>
 
 ```yaml
-name: Test with ctox
+name: Test with toxc
 on: [push, pull_request]
 
 jobs:
@@ -668,11 +668,11 @@ jobs:
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
         
-    - name: Run ctox tests
+    - name: Run toxc tests
       shell: bash -l {0}
       run: |
-        chmod +x ctox.sh
-        ./ctox.sh --parallel py39 py310 py311
+        chmod +x toxc.sh
+        ./toxc.sh --parallel py39 py310 py311
         
     - name: Upload coverage reports
       uses: codecov/codecov-action@v3
@@ -696,7 +696,7 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh 'chmod +x ctox.sh'
+                sh 'chmod +x toxc.sh'
             }
         }
         
@@ -704,12 +704,12 @@ pipeline {
             parallel {
                 stage('Quick Test') {
                     steps {
-                        sh './ctox.sh py39'
+                        sh './toxc.sh py39'
                     }
                 }
                 stage('Full Test') {
                     steps {
-                        sh './ctox.sh --parallel --jobs 4 py39 py310 py311'
+                        sh './toxc.sh --parallel --jobs 4 py39 py310 py311'
                     }
                 }
             }
@@ -717,7 +717,7 @@ pipeline {
         
         stage('Coverage') {
             steps {
-                sh './ctox.sh py311 -- --cov=src --cov-report=xml'
+                sh './toxc.sh py311 -- --cov=src --cov-report=xml'
                 publishCoverage adapters: [coberturaAdapter('coverage.xml')]
             }
         }
@@ -746,7 +746,7 @@ set -euo pipefail
 
 # Project configuration
 readonly PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-readonly CTOX_SCRIPT="${PROJECT_ROOT}/ctox.sh"
+readonly toxc_SCRIPT="${PROJECT_ROOT}/toxc.sh"
 
 # Default environment settings
 export CONDA_TOX_PIP_VERBOSITY=qqq
@@ -764,19 +764,19 @@ main() {
     case "${1:-help}" in
         "fast"|"f")
             green "🚀 Running fast tests..."
-            exec "${CTOX_SCRIPT}" py311
+            exec "${toxc_SCRIPT}" py311
             ;;
         "full"|"all"|"a")
             green "🔍 Running full test suite..."
-            exec "${CTOX_SCRIPT}" --parallel py39 py310 py311
+            exec "${toxc_SCRIPT}" --parallel py39 py310 py311
             ;;
         "coverage"|"cov"|"c")
             green "📊 Running coverage analysis..."
-            exec "${CTOX_SCRIPT}" py311 -- --cov=src --cov-report=html --cov-report=term
+            exec "${toxc_SCRIPT}" py311 -- --cov=src --cov-report=html --cov-report=term
             ;;
         "clean")
             yellow "🧹 Cleaning environments..."
-            exec "${CTOX_SCRIPT}" --force-conda --recreate py39 py310 py311
+            exec "${toxc_SCRIPT}" --force-conda --recreate py39 py310 py311
             ;;
         "help"|"h"|*)
             cat << 'EOF'
@@ -809,12 +809,12 @@ main "$@"
 <summary>📝 Enhanced Makefile</summary>
 
 ```makefile
-# Makefile - Enhanced ctox integration
+# Makefile - Enhanced toxc integration
 .PHONY: test test-fast test-parallel test-coverage clean help install-deps
 
 # Default Python environments
 PYTHON_ENVS := py39 py310 py311
-CTOX := ./ctox.sh
+toxc := ./toxc.sh
 
 # Help target (default)
 help: ## Show this help message
@@ -822,51 +822,51 @@ help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
-install-deps: ## Install ctox script and dependencies
+install-deps: ## Install toxc script and dependencies
 	@command -v conda >/dev/null 2>&1 || { echo "❌ Conda not found. Please install Anaconda/Miniconda."; exit 1; }
-	@test -f ctox.sh || { echo "❌ ctox.sh not found."; exit 1; }
-	@chmod +x ctox.sh
-	@echo "✅ ctox ready to use"
+	@test -f toxc.sh || { echo "❌ toxc.sh not found."; exit 1; }
+	@chmod +x toxc.sh
+	@echo "✅ toxc ready to use"
 
 test: install-deps ## Run tests on Python 3.11 (fastest)
-	$(CTOX) py311
+	$(toxc) py311
 
 test-fast: test ## Alias for test (fastest single environment)
 
 test-parallel: install-deps ## Run tests in parallel across all Python versions
-	$(CTOX) --parallel $(PYTHON_ENVS)
+	$(toxc) --parallel $(PYTHON_ENVS)
 
 test-coverage: install-deps ## Run coverage analysis with HTML report
-	$(CTOX) py311 -- --cov=src --cov-report=html --cov-report=term-missing
+	$(toxc) py311 -- --cov=src --cov-report=html --cov-report=term-missing
 
 test-lint: install-deps ## Run linting and formatting checks
-	$(CTOX) py311 -- --flake8 --black --isort
+	$(toxc) py311 -- --flake8 --black --isort
 
 test-all: test-parallel test-coverage ## Run all tests and coverage
 
 clean: ## Clean and recreate all environments
-	$(CTOX) --force-conda --recreate $(PYTHON_ENVS)
+	$(toxc) --force-conda --recreate $(PYTHON_ENVS)
 
 clean-cache: ## Clean tox cache only
-	$(CTOX) --recreate $(PYTHON_ENVS)
+	$(toxc) --recreate $(PYTHON_ENVS)
 
 dry-run: ## Preview what would be executed
-	$(CTOX) --dry-run --parallel $(PYTHON_ENVS)
+	$(toxc) --dry-run --parallel $(PYTHON_ENVS)
 
 # Development targets
 dev-setup: install-deps ## Setup development environment
-	$(CTOX) --force-conda py311
+	$(toxc) --force-conda py311
 	@echo "✅ Development environment ready"
 
 dev-test: ## Quick development testing
-	$(CTOX) py311 -- -x -vvs
+	$(toxc) py311 -- -x -vvs
 
 # CI targets  
 ci-test: install-deps ## Run CI-appropriate tests
-	CONDA_TOX_PIP_VERBOSITY=qqq $(CTOX) --parallel $(PYTHON_ENVS)
+	CONDA_TOX_PIP_VERBOSITY=qqq $(toxc) --parallel $(PYTHON_ENVS)
 
 ci-coverage: install-deps ## Run CI coverage reporting
-	$(CTOX) py311 -- --cov=src --cov-report=xml --cov-report=term
+	$(toxc) py311 -- --cov=src --cov-report=xml --cov-report=term
 ```
 
 </details>
@@ -944,10 +944,10 @@ commands =
 ```
 
 ```bash
-# Run environment-specific tests with ctox
-./ctox.sh py39-django32 py310-django41 py311-django42
-./ctox.sh py311-lint py311-type py311-security
-./ctox.sh coverage
+# Run environment-specific tests with toxc
+./toxc.sh py39-django32 py310-django41 py311-django42
+./toxc.sh py311-lint py311-type py311-security
+./toxc.sh coverage
 ```
 
 </details>
@@ -962,15 +962,15 @@ We welcome contributions! Here's how to get started:
 
 ```bash
 # 1. Fork and clone the repository
-git clone https://github.com/yourusername/ctox.git
-cd ctox
+git clone https://github.com/yourusername/toxc.git
+cd toxc
 
 # 2. Make the script executable
-chmod +x ctox.sh
+chmod +x toxc.sh
 
 # 3. Test basic functionality
-./ctox.sh --help
-./ctox.sh --dry-run py39
+./toxc.sh --help
+./toxc.sh --dry-run py39
 ```
 
 ### 📝 Code Style Guidelines
@@ -985,15 +985,15 @@ chmod +x ctox.sh
 
 ```bash
 # Test core functionality
-./ctox.sh --dry-run py39
-./ctox.sh --dry-run --parallel py39 py310
+./toxc.sh --dry-run py39
+./toxc.sh --dry-run --parallel py39 py310
 
 # Test error handling
-./ctox.sh invalid_env_name
-./ctox.sh --jobs 100  # Should fail validation
+./toxc.sh invalid_env_name
+./toxc.sh --jobs 100  # Should fail validation
 
 # Test with debug output
-DEBUG=1 ./ctox.sh --verbose --dry-run py39
+DEBUG=1 ./toxc.sh --verbose --dry-run py39
 ```
 
 ### 📤 Submitting Changes
@@ -1028,7 +1028,7 @@ Need help? Here's how to get support:
 
 1. **📖 Check Documentation**: Review the [Troubleshooting](#-troubleshooting) section
 2. **🔧 Run Diagnostics**: Use `--dry-run --verbose` for detailed output
-3. **🐛 Search Issues**: Check [existing GitHub issues](https://github.com/bud003/ctox/issues)
+3. **🐛 Search Issues**: Check [existing GitHub issues](https://github.com/bud003/toxc/issues)
 
 ### 📬 Creating an Issue
 
@@ -1038,14 +1038,14 @@ When creating a new issue, please include:
 - **📝 Configuration**: Your `tox.ini` content
 - **🚨 Error Output**: Complete error output with debug mode enabled:
   ```bash
-  DEBUG=1 ./ctox.sh --verbose [your-command] 2>&1 | tee debug.log
+  DEBUG=1 ./toxc.sh --verbose [your-command] 2>&1 | tee debug.log
   ```
 - **🔄 Reproduction Steps**: Clear steps to reproduce the issue
 
 ### 💬 Community
 
-- **📋 GitHub Issues**: [Report bugs or request features](https://github.com/bud003/ctox/issues)
-- **💡 GitHub Discussions**: [Ask questions and share ideas](https://github.com/bud003/ctox/discussions)
+- **📋 GitHub Issues**: [Report bugs or request features](https://github.com/bud003/toxc/issues)
+- **💡 GitHub Discussions**: [Ask questions and share ideas](https://github.com/bud003/toxc/discussions)
 
 ---
 
@@ -1053,7 +1053,7 @@ When creating a new issue, please include:
 
 **⭐ Star this project if you find it useful! ⭐**
 
-**ctox** - Simplifying Python testing across multiple conda environments since 2025
+**toxc** - Simplifying Python testing across multiple conda environments since 2025
 
 *Made with ❤️ for the Python testing community*
 
