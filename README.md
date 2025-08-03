@@ -39,23 +39,23 @@ curl -O https://raw.githubusercontent.com/bud003/toxc/main/toxc.sh && chmod +x t
 <details>
 <summary>Click to expand</summary>
 
-- [🔍 Overview](#-overview)
-- [✨ Features](#-features)
-- [📋 Prerequisites](#-prerequisites)
-- [⚡ Installation](#-installation)
-- [🎯 Usage](#-usage)
+- 🔍 [Overview](#-overview)
+- ✨ [Features](#-features)
+- 📋 [Prerequisites](#-prerequisites)
+- ⚡ [Installation](#-installation)
+- 🎯 [Usage](#-usage)
   - [Command Syntax](#command-syntax)
   - [Options Reference](#options-reference)
   - [Arguments](#arguments)
   - [Environment Variables](#environment-variables)
-- [💡 Examples](#-examples)
-- [⚙️ Configuration](#️-configuration)
-- [🔧 Environment Management](#-environment-management)
-- [🛡️ Error Handling](#️-error-handling)
-- [🔍 Troubleshooting](#-troubleshooting)
-- [🎓 Advanced Usage](#-advanced-usage)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+- 💡 [Examples](#-examples)
+- ⚙️ [Configuration](#️-configuration)
+- 🔧 [Environment Management](#-environment-management)
+- 🛡️ [Error Handling](#️-error-handling)
+- 🔍 [Troubleshooting](#-troubleshooting)
+- 🎓 [Advanced Usage](#-advanced-usage)
+- 🤝 [Contributing](#-contributing)
+- 📄 [License](#-license)
 
 </details>
 
@@ -67,42 +67,25 @@ curl -O https://raw.githubusercontent.com/bud003/toxc/main/toxc.sh && chmod +x t
 
 ### 🎯 Why Choose toxc?
 
-| Feature | Benefit |
-|---------|---------|
-| 🤖 **Automated Environment Management** | Creates conda environments for specified Python versions automatically |
-| ⚡ **Parallel Test Execution** | Run tests across multiple Python environments simultaneously |
-| 🛡️ **Robust Error Handling** | Comprehensive validation and graceful error recovery |
-| 🔧 **Flexible Configuration** | Extensive customization through CLI options and environment variables |
-| 🏭 **Production Ready** | Built with strict bash practices, signal handling, and cleanup procedures |
+| Feature                                 | Benefit                                                                   |
+| --------------------------------------- | ------------------------------------------------------------------------- |
+| 🤖 **Automated Environment Management** | Creates conda environments for specified Python versions automatically    |
+| ⚡ **Parallel Test Execution**           | Run tests across multiple Python environments simultaneously              |
+| 🛡️ **Robust Error Handling**            | Comprehensive validation and graceful error recovery                      |
+| 🔧 **Flexible Configuration**           | Extensive customization through CLI options and environment variables     |
+| 🏭 **Production Ready**                 | Built with strict bash practices, signal handling, and cleanup procedures |
 
 ---
 
 ## ✨ Features
 
-<table>
-<tr>
-<td width="50%">
-
-### 🔧 Core Features
-- ✅ Automatic conda environment creation
-- ✅ Parallel test execution with job limits
-- ✅ Environment auto-discovery from `tox.ini`
-- ✅ Force recreation of environments
-- ✅ Dry run mode for previewing actions
-
-</td>
-<td width="50%">
-
-### 🛡️ Quality Features
-- ✅ Comprehensive logging with colors
-- ✅ Signal handling and graceful shutdown
-- ✅ Input validation and error handling
-- ✅ Cross-platform compatibility
-- ✅ CI/CD integration ready
-
-</td>
-</tr>
-</table>
+| 🔧 Core Features                             | 🛡️ Quality Features                      |
+| -------------------------------------------- | --------------------------------------- |
+| ✅ Automatic conda environment creation      | ✅ Comprehensive logging with colors     |
+| ✅ Parallel test execution with job limits   | ✅ Signal handling and graceful shutdown |
+| ✅ Environment auto-discovery from `tox.ini` | ✅ Input validation and error handling   |
+| ✅ Force recreation of environments          | ✅ Cross-platform compatibility          |
+| ✅ Dry run mode for previewing actions       | ✅ CI/CD integration ready               |
 
 ---
 
