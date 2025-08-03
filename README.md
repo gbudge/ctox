@@ -1041,3 +1041,10 @@ When creating a new issue, please include:
 *Made with ❤️ for the Python testing community*
 
 </div>
+
+<style>
+table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+</style>
