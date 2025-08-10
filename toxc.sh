@@ -13,8 +13,13 @@
 set -euo pipefail
 
 # --- Constants ---
+readonly SCRIPT_VERSION="1.0.1"
 readonly SCRIPT_NAME="$(basename "$0")"
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly DEFAULT_PIP_VERBOSITY="q"
+readonly DEFAULT_TOX_VERBOSITY="0"
+readonly PYTHON_ENV_PATTERN="^py([0-9])([0-9]+)$"
+readonly MAX_PARALLEL_JOBS=8
 readonly TEMP_DIR_PREFIX="conda_tox_$$"
 
 # Color constants
@@ -27,23 +32,16 @@ readonly C_BLUE='\033[0;34m'
 readonly C_MAGENTA='\033[0;35m'
 readonly C_CYAN='\033[0;36m'
 
-# Default configuration
-readonly SCRIPT_VERSION="1.0.0"
-readonly DEFAULT_PIP_VERBOSITY="q"
-readonly DEFAULT_TOX_VERBOSITY="0"
-readonly PYTHON_ENV_PATTERN="^py([0-9])([0-9]+)$"
-readonly MAX_PARALLEL_JOBS=8
-
 # --- Global Variables ---
-declare -g parallel_execution=false
-declare -g recreate_tox_env=false
-declare -g force_recreate_conda=false
-declare -g dry_run=false
-declare -g max_parallel_jobs="$MAX_PARALLEL_JOBS"
-declare -ga envs_to_test=()
-declare -ga tox_posargs=()
-declare -ga failed_envs=()
-declare -g temp_dir=""
+declare parallel_execution=false
+declare recreate_tox_env=false
+declare force_recreate_conda=false
+declare dry_run=false
+declare max_parallel_jobs="$MAX_PARALLEL_JOBS"
+declare -a envs_to_test=()
+declare -a tox_posargs=()
+declare -a failed_envs=()
+declare temp_dir=""
 
 # --- Helper Functions ---
 
